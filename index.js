@@ -13,11 +13,14 @@ function highlightCheckedOption(e){
         radio.classList.remove('highlight')
     }
     document.getElementById(e.target.id).parentElement.classList.add('highlight')
-}
+} 
 
 function getMatchingCatsArray(){
-    const selectedEmotion = document.querySelector('input[type="radio"]:checked').value
-    console.log(selectedEmotion)
+    if(document.querySelector('input[type="radio"]:checked')){
+        const selectedEmotion = document.querySelector('input[type="radio"]:checked').value
+        console.log(selectedEmotion)
+    }
+    
 }
 
 function getEmotionsArray(cats){
