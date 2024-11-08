@@ -1,4 +1,4 @@
-import { catsData } from '/data.js'
+import { catsData } from './data.js'
 
 const emotionRadios = document.getElementById('emotion-radios')
 const getImageBtn = document.getElementById('get-image-btn')
@@ -40,37 +40,33 @@ function getMatchingCatsArray(){
             }            
         })
         return matchingCatsArray 
-    }   
+    }  
 }
 
 function getSingleCatObject(){
-    
     const catsArray = getMatchingCatsArray()
     
-    if (catsArray.length === 1){
+    if(catsArray.length === 1){
         return catsArray[0]
     }
-    else {
+    else{
         const randomNumber = Math.floor(Math.random() * catsArray.length)
         return catsArray[randomNumber]
     }
-    
 }
 
 function renderCat(){
-    
     const catObject = getSingleCatObject()
-    
-    memeModalInner.innerHTML = `
-    <img 
-    class="cat-img" 
-    src="./images/${catObject.image}"
-    alt="${catObject.alt}"
-    >
-    `
+    memeModalInner.innerHTML =  `
+        <img 
+        class="cat-img" 
+        src="./images/${catObject.image}"
+        alt="${catObject.alt}"
+        >
+        `
     memeModal.style.display = 'flex'
 }
- 
+
 function getEmotionsArray(cats){
     const emotionsArray = []    
     for (let cat of cats){
@@ -85,7 +81,7 @@ function getEmotionsArray(cats){
 
 function renderEmotionsRadios(cats){
         
-    let radioItems = ``
+    let radioItems = ''
     const emotions = getEmotionsArray(cats)
     for (let emotion of emotions){
         radioItems += `
